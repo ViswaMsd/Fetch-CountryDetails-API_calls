@@ -2,8 +2,19 @@
 
 const btn = document.querySelector('.btn-country');
 const countriesContainer = document.querySelector('.countries');
+const submitHandler = document.querySelector('.btn-country');
+const inputCountry = document.querySelector('.input-country');
 
 ///////////////////////////////////////
+const test = input => {
+  console.log(input);
+};
+submitHandler.addEventListener('click', event => {
+  event.preventDefault();
+  console.log(inputCountry.value);
+  FetchCountry(inputCountry.value);
+  inputCountry.value = '';
+});
 const RenderCountry = countryObj => {
   let html = `<article class="country">
       <img class="country__img" src=${countryObj.flag} />
@@ -26,6 +37,7 @@ const RenderCountry = countryObj => {
 };
 
 const FetchCountry = country => {
+  console.log(country);
   fetch(`https://restcountries.eu/rest/v2/name/${country}`)
     .then(res => {
       if (!res.ok)
@@ -36,8 +48,9 @@ const FetchCountry = country => {
     .then(data => {
       console.log(data);
       RenderCountry(data[0]);
-    //   const neighbourCountryCode = data[0].borders[0];
-        if (data[0].borders.length === 0) throw new Error(`No Neighbour Country for ${data[0].name}`);
+      //   const neighbourCountryCode = data[0].borders[0];
+      if (data[0].borders.length === 0)
+        throw new Error(`No Neighbour Country for ${data[0].name}`);
       console.log(neighbourCountry);
       return fetch(
         `https://restcountries.eu/rest/v2/alpha/${neighbourCountryCode}`
@@ -92,7 +105,7 @@ const FetchCountry = country => {
 //     });
 // };
 
-FetchCountry('australia');
+// FetchCountry('australia');
 
 //////////////////////////  CODING CHALLANGE  ////////////////////////////////
 
