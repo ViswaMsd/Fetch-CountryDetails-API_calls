@@ -33,6 +33,7 @@ body {
   font-size: 2rem;
   opacity: 0;
   transition: opacity 1s ease-in;
+  /* margin: 2rem; */
 }
 
 .country {
@@ -101,11 +102,23 @@ body {
 .btn-country {
   border: none;
   font-size: 2rem;
-  padding: 2rem 5rem;
+  padding: 1rem 2rem;
   border-radius: 0.7rem;
-  color: white;
-  background-color: orangered;
+  color: rgb(203, 235, 203);
+  background-color: rgb(21, 131, 21);
   cursor: pointer;
+}
+
+.input-country {
+  border: 2px solid rgb(21, 131, 21);
+  font-size: 2rem;
+  padding: 1rem 2rem;
+  border-radius: 0.7rem;
+  color: rgb(0, 14, 0);
+  background-color: rgb(151, 255, 151);
+}
+.input-country:focus {
+  outline: none;
 }
 
 .images {
@@ -123,4 +136,9 @@ body {
   margin: 2rem;
   border: 3rem solid white;
   box-shadow: 0 2rem 5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.form-control {
+  margin: 2rem;
+  /* padding: 2rem; */
 }
